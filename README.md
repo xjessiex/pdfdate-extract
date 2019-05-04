@@ -16,4 +16,4 @@ To help my friend easily identify the latest update in a long PDF file, this pyt
 * The `re` package is powerful but I need to read more about how to fully utilize the [package](https://docs.python.org/2/library/re.html). Right now, I locate the first matching date pattern to extract the date. I should identify the before and after string to avoid errors.
 
 ## Sample Output
-![sample_image](https://github.com/xjessiex/pdfdate-extract/blob/master/sample_output.PNG =40x60)
+![sample_image](https://github.com/xjessiex/pdfdate-extract/blob/master/sample_output.PNG =150x)
