@@ -35,6 +35,7 @@ class Datecheck:
         datelist = []
 
         while i < self.pdfread.getNumPages():
+            print("processing Page %s..." % (i+1))
             x = self.pdfread.getPage(i)
             page_content = x.extractText()
             page_content = ''.join(page_content.split())
@@ -62,10 +63,9 @@ class Datecheck:
         print("%s pages are unreadable in total." % page_failure)
 
         # sort loaded pages based on dates
-        df_sorted= df.clean.sort_values(by="Date", ascending=False)
+        self.df_sorted = df.clean.sort_values(by="Date", ascending=False)
         print("After sorting the date, now preview the top updated pages.")
-        print(df_sorted[:5])
-
+        print(self.df_sorted[:5])
 
     def singletest(self):
         print("For testing:")
@@ -88,6 +88,9 @@ class Datecheck:
         print(page_date)
         datelist.append([i + 1, page_date])
 
+    def savefile(self):
+        self.df_sorted.to_csv("output_table.csv", index=False)
+
 
 
 def main():
@@ -95,6 +98,7 @@ def main():
     test.docinfo()
     test.extractnsort()
     #test.singletest() # for testing only
+    test.savefile()
 
 
 if __name__ == "__main__":
